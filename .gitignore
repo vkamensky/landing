@@ -1,0 +1,19 @@
+# Системные
+.DS_Store
+._*
+
+# IDE / редакторы
+.idea/
+.vscode/
+.cursor/
+*.swp
+*.swo
+
+# Временные
+*.tmp
+*.log
+*.bak
+
+# Obsidian (опционально)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
