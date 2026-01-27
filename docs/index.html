@@ -10,12 +10,16 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            /* Палитра: уголь + teal (Editorial + Industrial) */
+            /* Палитра по logo-small: фиолетовый → синий → teal */
+            --logo-purple: #6d28d9;
+            --logo-blue: #2563eb;
+            --logo-teal: #0d9488;
             --accent: #0d9488;
             --accent-light: #14b8a6;
             --accent-dark: #0f766e;
-            --dark-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            --accent-gradient: linear-gradient(135deg, #0d9488 0%, #06b6d4 100%);
+            --dark-gradient: linear-gradient(135deg, #4c1d95 0%, #1e3a8a 50%, #0f766e 100%);
+            --accent-gradient: linear-gradient(135deg, #6d28d9 0%, #2563eb 50%, #0d9488 100%);
+            --hero-gradient: linear-gradient(165deg, #faf5ff 0%, #f5f3ff 20%, #eff6ff 45%, #f0fdfa 100%);
             --light-bg: #f8fafc;
             --white: #ffffff;
             --text-dark: #0f172a;
@@ -54,39 +58,42 @@
 
         .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
 
-        /* Navbar */
+        /* Navbar — скрыта при загрузке, выезжает при скролле вниз; hero без шапки */
         .navbar {
             position: fixed;
             top: 0; left: 0; right: 0;
-            background: rgba(255,255,255,0.95);
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+            pointer-events: none;
+        }
+        .navbar.scrolled {
+            transform: translateY(0);
+            pointer-events: auto;
+            background: rgba(255,255,255,0.96);
             backdrop-filter: blur(10px);
             box-shadow: var(--shadow-sm);
-            z-index: 1000;
-            transition: var(--transition);
         }
-        .navbar.scrolled { box-shadow: var(--shadow-md); }
 
         .nav-container {
-            max-width: var(--container-max-width);
+            max-width: 1280px;
             margin: 0 auto;
-            padding: var(--space-sm) var(--container-padding);
+            padding: var(--space-md) var(--container-padding);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: var(--text-dark);
+            display: flex;
+            align-items: center;
             text-decoration: none;
             transition: var(--transition);
         }
-        .logo:hover { color: var(--accent); }
-        .logo img { height: 44px; width: auto; object-fit: contain; }
+        .logo:hover { opacity: 0.85; }
+        .logo img { height: 42px; width: auto; object-fit: contain; display: block; }
 
-        .nav-links { display: flex; gap: var(--space-lg); list-style: none; }
+        .nav-links { display: flex; gap: var(--space-xl); list-style: none; }
         .nav-links a {
             text-decoration: none;
             color: var(--text-gray);
@@ -109,18 +116,17 @@
         .cta-button {
             background: var(--accent);
             color: white;
-            padding: 12px var(--space-md);
+            padding: 10px var(--space-md);
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
+            border: none;
             transition: var(--transition);
-            box-shadow: var(--shadow-md);
         }
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
             background: var(--accent-dark);
+            transform: translateY(-1px);
         }
 
         .mobile-menu-toggle {
@@ -140,16 +146,18 @@
         .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
         .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
 
-        /* Hero */
+        /* Hero — фото как правая панель, вровень с краем; левая часть — контент */
         .hero {
-            min-height: 85vh;
+            min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            background: var(--dark-gradient);
-            color: white;
-            text-align: center;
-            padding: calc(80px + var(--space-3xl)) var(--container-padding) var(--space-3xl);
+            background: var(--hero-gradient);
+            color: var(--text-dark);
+            padding: 0 0 0 var(--container-padding);
+            padding-top: var(--space-xl);
+            padding-bottom: var(--space-2xl);
             position: relative;
             overflow: hidden;
         }
@@ -157,23 +165,108 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="g" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/></pattern></defs><rect width="60" height="60" fill="url(%23g)"/></svg>');
+            z-index: 1;
+            background-image:
+                radial-gradient(ellipse 70% 50% at 90% 20%, rgba(109, 40, 217, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 10% 80%, rgba(13, 148, 136, 0.06) 0%, transparent 50%),
+                url('data:image/svg+xml,<svg width="28" height="28" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="rgba(109,40,217,0.04)"/></svg>');
+            background-size: auto, auto, 28px 28px;
+            pointer-events: none;
         }
-        .hero-content { max-width: 780px; position: relative; z-index: 1; }
-        .hero h1 {
+        .hero-inner {
+            max-width: 58%;
+            margin: 0;
+            padding-right: var(--space-xl);
+            position: relative;
+            z-index: 2;
+        }
+        .hero-left h1 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(36px, 6vw, 58px);
+            font-size: clamp(32px, 4.5vw, 52px);
             font-weight: 800;
             line-height: 1.15;
-            margin-bottom: var(--space-md);
             letter-spacing: -0.02em;
+            margin-bottom: var(--space-sm);
+            text-align: left;
+            color: var(--text-dark);
         }
-        .hero .tagline {
-            font-size: clamp(17px, 2.2vw, 22px);
-            opacity: 0.9;
-            margin-bottom: var(--space-lg);
-            font-weight: 400;
+        .hero-byline {
+            font-size: clamp(15px, 1.6vw, 17px);
+            line-height: 1.5;
+            color: var(--text-gray);
+            margin-bottom: var(--space-md);
+            font-weight: 500;
         }
+        .hero-byline .name { color: var(--accent-dark); font-weight: 600; }
+        .hero-meta {
+            font-size: 14px;
+            color: var(--text-light);
+            letter-spacing: 0.02em;
+            text-align: left;
+            margin-bottom: var(--space-md);
+        }
+        .hero-meta span { color: var(--text-gray); font-weight: 500; }
+        .hero-left .tagline {
+            font-size: clamp(16px, 1.8vw, 19px);
+            line-height: 1.65;
+            color: var(--text-gray);
+            margin-bottom: var(--space-sm);
+        }
+        .hero-photo-pane {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 55%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        /* Цвет hero поверх фото — палитра hero (лаванда → голубой → мята) */
+        .hero-photo-pane::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(165deg,
+                rgba(250,245,255,0.45) 0%,
+                rgba(245,243,255,0.38) 30%,
+                rgba(239,246,255,0.35) 60%,
+                rgba(240,253,250,0.4) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        /* Плавный переход влево в тон hero */
+        .hero-photo-pane::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, #faf5ff 0%, rgba(250,245,255,0.5) 28%, transparent 52%);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .hero-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 28%;
+            display: block;
+        }
+        .hero-ctas { display: flex; flex-direction: column; gap: var(--space-sm); margin-top: var(--space-sm); }
+        .hero-cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--accent-dark);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: var(--transition);
+            align-self: flex-start;
+        }
+        .hero-cta-link:hover { color: var(--logo-purple); }
+        .hero-cta-link::after { content: '→'; font-size: 16px; }
+
         .btn-primary {
             display: inline-block;
             background: var(--accent);
@@ -385,6 +478,28 @@
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
         /* Responsive */
+        @media (max-width: 968px) {
+            .hero {
+                padding: 0 var(--container-padding);
+                padding-top: var(--space-xl);
+                padding-bottom: var(--space-3xl);
+                flex-direction: column;
+            }
+            .hero-inner { max-width: 100%; padding-right: 0; order: 2; }
+            .hero-left h1 { margin-bottom: var(--space-md); }
+            .hero-photo-pane {
+                position: relative;
+                order: 1;
+                width: 100%;
+                height: 50vh;
+                min-height: 300px;
+                margin-bottom: var(--space-lg);
+            }
+            .hero-photo { border-radius: 12px; }
+        }
+        @media (max-width: 480px) {
+            .hero-photo-pane { min-height: 260px; }
+        }
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .mobile-menu-toggle { display: flex; }
@@ -399,7 +514,7 @@
 
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#home" class="logo">DataMaster.PRO</a>
+            <a href="#home" class="logo"><img src="assets/logo-small.jpeg" alt="DataMaster.PRO"></a>
             <ul class="nav-links">
                 <li><a href="#about">О нас</a></li>
                 <li><a href="#cases">Кейсы</a></li>
@@ -413,10 +528,20 @@
     </nav>
 
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h1 class="font-heading">Автоматизация и управление данными для enterprise</h1>
-            <p class="tagline">Внедряем сквозные процессы: от рекрутинга и закупок до ИИ-поддержки и аналитики. Измеримые результаты за месяцы.</p>
-            <a href="#contact" class="btn-primary">Обсудить проект</a>
+            <div class="hero-inner">
+            <div class="hero-left">
+                <h1 class="font-heading">Автоматизация и управление данными для enterprise</h1>
+                <p class="hero-byline"><span class="name">Влад Каменский.</span> Эксперт по управлению данными — твой проводник в мир ИИ для бизнеса.</p>
+                <p class="hero-meta"><span>Сферы:</span> производство · госсектор · retail · ITSM</p>
+                <p class="tagline">Внедряем сквозные процессы: от рекрутинга и закупок до ИИ-поддержки и аналитики. Измеримые результаты за месяцы.</p>
+                <div class="hero-ctas">
+                    <a href="#contact" class="hero-cta-link">Обсудить проект</a>
+                    <a href="#cases" class="hero-cta-link">Смотреть кейсы</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-photo-pane">
+            <img class="hero-photo" src="assets/vlad-photo.jpeg" alt="Владислав Каменский">
         </div>
     </section>
 
@@ -478,7 +603,7 @@
         const navbar = document.getElementById('navbar');
         const scrollTop = document.getElementById('scrollTop');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) { navbar.classList.add('scrolled'); scrollTop.classList.add('visible'); }
+            if (window.scrollY > 80) { navbar.classList.add('scrolled'); scrollTop.classList.add('visible'); }
             else { navbar.classList.remove('scrolled'); scrollTop.classList.remove('visible'); }
         });
 
