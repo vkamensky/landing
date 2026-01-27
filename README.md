@@ -4,22 +4,29 @@
 
 ## Структура
 
-- `website_output/` — **исходник для выкладки в git** (отсюда публикуем)
-  - `index.html` — главная страница (встроенные CSS и JS)
-  - `assets/` — логотип, изображения
+- **`website_output/`** — внутренняя рабочая папка (не в git). Редактируем тут `index.html` и `assets/`.
+- **`docs/`** — выкладка для GitHub Pages (в git). Содержимое копируется из `website_output/` скриптом.
 - Дизайн и идея сборки: см. `{data-master} {note} Дизайн лендинга и сборка – 2026-01-27 – Cursor.md`
 
 ## Локальный просмотр
 
-Откройте в браузере: `website_output/index.html`
+Откройте в браузере: `website_output/index.html` или после генерации — `docs/index.html`
 
 ## Публикация на GitHub Pages
 
-1. Создайте репозиторий (например `datamaster-pro`).
-2. В Settings → Pages: Source = Deploy from a branch, Branch = main, **Folder = `/website_output`**.
-3. Коммитьте и пушьте папку `website_output/` в репозиторий.
-4. Сайт будет доступен: `https://<user>.github.io/datamaster-pro/` (GitHub отдаёт `index.html` из корня выбранной папки).
+1. Сгенерировать `docs/` из `website_output/`:
+   ```bash
+   python3 generate_landing_for_pages.py
+   ```
+2. Закоммитить и запушить:
+   ```bash
+   git add docs/
+   git commit -m "Обновлен лендинг"
+   git push
+   ```
+3. В Settings → Pages: Source = Deploy from a branch, Branch = main, **Folder = `/docs`**.
+4. Сайт: `https://<user>.github.io/landing/` (или как назван репозиторий).
 
 ## Идея сборки
 
-Заимствована из проекта [DataMaster.PRO AI course](../DataMaster.PRO%20AI%20course%20%7Bai-course%7D): один HTML без сборщиков, CSS-переменные, vanilla JS. Работаем напрямую в `website_output/`; при необходимости можно добавить скрипт, который копирует в `website_output/` выбранную версию из отдельных файлов (например `data-master-v1.html`).
+Заимствована из [DataMaster.PRO AI course](../DataMaster.PRO%20AI%20course%20%7Bai-course%7D): один HTML, CSS-переменные, vanilla JS. Работаем в `website_output/`; скрипт копирует в `docs/`; в git и на GitHub Pages — только `docs/`.
