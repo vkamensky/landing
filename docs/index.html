@@ -103,8 +103,17 @@ img {
 
 .hero-photo {
   flex: 1;
-  background-size: cover;
-  background-position: center top;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
 }
 
 .hero-content {
@@ -910,7 +919,9 @@ img {
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-photo" style="background-image: url('assets/vlad-photo.jpeg')"></div>
+    <div class="hero-photo">
+      <img src="assets/vlad-photo.jpeg" alt="Владислав Каменский">
+    </div>
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="hero-headline">Помогаю людям<br>и командам<br>стать эффективней</h1>
@@ -1102,7 +1113,7 @@ img {
         <h3 class="mentor-subtitle">От хаоса к системе</h3>
         <p class="mentor-desc">Я понимаю, с какими вызовами предприниматели сталкиваются каждый день. Предлагаю программу личного ИИ-наставника, чтобы разобраться с этими проблемами и освободить время для стратегии.</p>
       </div>
-      <a href="#contact" class="mentor-btn">Читать подробнее</a>
+      <a href="http://course.data-master.pro/" class="mentor-btn" target="_blank" rel="noopener">Читать подробнее</a>
     </div>
     <div class="mentor-grid">
       <div class="mentor-col">
