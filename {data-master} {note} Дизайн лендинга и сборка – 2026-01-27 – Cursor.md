@@ -23,12 +23,13 @@ area: DataMaster.PRO main landing page
 
 ```
 DataMaster.PRO main landing page {data-master}/
-├── website_output/          ← откуда выкладываем в git (публикуем)
+├── website_output/          ← внутренняя рабочая папка (не в git)
 │   ├── index.html          ← единая страница, встроенные CSS + JS
 │   └── assets/              ← логотип, изображения
-│       ├── logo.png
-│       └── logo-big.png
-├── generate_landing_for_pages.py   ← опционально: копирование версии в website_output/
+├── docs/                    ← выкладка в git; сюда копируем из website_output скриптом
+│   ├── index.html
+│   └── assets/
+├── generate_landing_for_pages.py   ← website_output → docs
 ├── README.md
 └── ... (заметки, кейсы, интро)
 ```
@@ -40,23 +41,18 @@ DataMaster.PRO main landing page {data-master}/
 | **HTML** | Один `index.html` со встроенными `<style>` и `<script>`. Без сборщиков (Vite/Webpack). |
 | **Стили** | CSS-переменные в `:root` (цвета, тени, spacing, `--container-max-width`). |
 | **Скрипты** | Vanilla JS: навигация при скролле, мобильное меню, плавная прокрутка, IntersectionObserver для анимаций. |
-| **Ассеты** | `website_output/assets/` — только необходимые изображения. |
-| **Публикация** | Коммитим `website_output/` в git. GitHub Pages: Source = branch `main`, **Folder = `/website_output`**. |
+| **Ассеты** | `website_output/assets/` — рабочая папка; в git попадает `docs/assets/` после копирования. |
+| **Публикация** | Редактируем в `website_output/`. Запускаем `generate_landing_for_pages.py` → `docs/`. Коммитим **`docs/`** в git. GitHub Pages: **Folder = `/docs`**. |
 
-### Опциональный скрипт генерации
+### Скрипт generate_landing_for_pages.py
 
-Если появятся версионированные исходники (например `data-master-v1.html` в отдельной папке), скрипт по аналогии с ai-course может:
-
-- искать последнюю версию `data-master-v*.html`;
-- копировать её в `website_output/index.html`;
-- копировать `assets/` в `website_output/assets/`.
-
-Пока можно обходиться прямой правкой `website_output/index.html`.
+Копирует `website_output/index.html` → `docs/index.html` и `website_output/assets/` → `docs/assets/`. После правок в `website_output/` запускаем скрипт, затем `git add docs/` и коммит.
 
 ### GitHub Pages
 
-- Репозиторий, например: `datamaster-pro` или `datamaster-landing`.
-- URL: `https://vkamensky.github.io/datamaster-pro/` (или аналог).
+- Репозиторий: `landing` (или `datamaster-pro` и т.п.).
+- **Folder = `/docs`**.
+- URL: `https://vkamensky.github.io/landing/` (или аналог).
 
 ---
 
@@ -171,13 +167,13 @@ DataMaster.PRO main landing page {data-master}/
 3. ~~Подключить шрифты и палитру~~ — в скелете уже есть.
 4. Заполнить контент: интро из [[{data-master} {note} Интро – 2026-01-18 – Cursor]], 3–6 кейсов из [[{data-master}{note} Кейсы автоматизации DataMaster.PRO 2026-01-27]].
 5. Добавить логотип/бренд в `website_output/assets/` (при наличии).
-6. При необходимости — `generate_landing_for_pages.py` (копирование версии в `website_output/`).
-7. Настроить репозиторий и GitHub Pages (Folder = `/website_output`).
+6. ~~`generate_landing_for_pages.py`~~ — есть: копирует `website_output/` → `docs/`.
+7. Настроить репозиторий и GitHub Pages (Folder = **`/docs`**).
 
 ---
 
 ## 6. Ссылки
 
-- [[40 project/DataMaster.PRO AI course {ai-course}/docs/index.html]] — эталон вёрстки (у ai-course вывод в `docs/`; у нас — в `website_output/`).
+- [[40 project/DataMaster.PRO AI course {ai-course}/docs/index.html]] — эталон вёрстки (у ai-course и у нас: работа в `website_output/`, выкладка в `docs/`).
 - [[40 project/DataMaster.PRO AI course {ai-course}/README.md]] — описание генерации и GitHub Pages.
-- [[40 project/DataMaster.PRO AI course {ai-course}/SETUP.md]] — настройка Git и Pages. Для DataMaster.PRO: Folder = `/website_output`.
+- [[40 project/DataMaster.PRO AI course {ai-course}/SETUP.md]] — настройка Git и Pages. Для DataMaster.PRO: Folder = **`/docs`**, в git только `docs/`.
