@@ -455,67 +455,75 @@ img {
 }
 
 .cases-grid {
-  display: flex;
-  gap: 24px;
+  position: relative;
+  width: 100%;
+  min-height: 400px;
 }
 
 .case-card {
-  flex: 1;
-  background: var(--card-gray);
+  display: none;
+  background: var(--white);
   border-radius: 16px;
-  padding: 40px;
-  display: flex;
+  padding: 56px;
   flex-direction: column;
-  gap: 24px;
+  gap: 40px;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.case-card.active {
+  display: flex;
+  opacity: 1;
 }
 
 .case-content {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
+  gap: 60px;
 }
 
 .case-title {
-  font-size: 24px;
+  font-size: 36px;
   font-weight: 700;
   color: var(--dark);
 }
 
 .case-block {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
 .case-label {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 2px;
   color: var(--teal);
 }
 
 .case-text {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.7;
   color: var(--dark);
   opacity: 0.7;
 }
 
 .case-footer {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  gap: 60px;
 }
 
 .case-results {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
 .case-result-item {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 400;
   color: var(--dark);
   opacity: 0.7;
@@ -827,7 +835,6 @@ img {
   }
 
   .services-grid,
-  .cases-grid,
   .mentor-grid,
   .contact-cards {
     flex-direction: column;
@@ -898,6 +905,20 @@ img {
 
   .mentor-header {
     flex-direction: column;
+  }
+
+  .case-card {
+    padding: 32px 20px;
+  }
+
+  .case-content,
+  .case-footer {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .case-title {
+    font-size: 28px;
   }
 }
   </style>
@@ -1055,9 +1076,9 @@ img {
       </div>
     </div>
     <div class="cases-grid">
-      <div class="case-card">
+      <div class="case-card active">
+        <h3 class="case-title">Рекрутинг на автопилоте</h3>
         <div class="case-content">
-          <h3 class="case-title">Рекрутинг на автопилоте</h3>
           <div class="case-block">
             <span class="case-label">Проблема</span>
             <p class="case-text">Ручной поиск и первичный отбор кандидатов отнимают у HR до 80% времени. При росте числа вакансий процесс замедляется и даёт сбои.</p>
@@ -1074,13 +1095,15 @@ img {
             <p class="case-result-item">• Трудозатраты HR на рутину снижаются на 60–70%</p>
             <p class="case-result-item">• Актуальный статус по всем вакансиям ежедневно</p>
           </div>
-          <span class="case-label">Кому подходит</span>
-          <p class="case-text">Компании с типовым и массовым подбором, бизнесы, планирующие масштабировать команду</p>
+          <div class="case-block">
+            <span class="case-label">Кому подходит</span>
+            <p class="case-text">Компании с типовым и массовым подбором, бизнесы, планирующие масштабировать команду</p>
+          </div>
         </div>
       </div>
       <div class="case-card">
+        <h3 class="case-title">Быстрые и прозрачные закупки</h3>
         <div class="case-content">
-          <h3 class="case-title">Быстрые и прозрачные закупки</h3>
           <div class="case-block">
             <span class="case-label">Проблема</span>
             <p class="case-text">Закупки тянутся неделями из-за ручного сбора КП, отчётов в Excel и дублирования данных. Контроль сроков поставок ведут «на глаз».</p>
@@ -1097,8 +1120,87 @@ img {
             <p class="case-result-item">• Ручной труд в закупках снижен на 80%</p>
             <p class="case-result-item">• Полная прозрачность цен и статусов поставок</p>
           </div>
-          <span class="case-label">Кому подходит</span>
-          <p class="case-text">Производственным, строительным и торговым компаниям с регулярными закупками у множества поставщиков</p>
+          <div class="case-block">
+            <span class="case-label">Кому подходит</span>
+            <p class="case-text">Производственным, строительным и торговым компаниям с регулярными закупками у множества поставщиков</p>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <h3 class="case-title">Точный расчёт штата (автоматизация нормативной численности)</h3>
+        <div class="case-content">
+          <div class="case-block">
+            <span class="case-label">Проблема</span>
+            <p class="case-text">Ежеквартальный расчёт численности под производственный план занимает у инженера до двух недель. Данные вручную копируются между таблицами Excel, что ведёт к ошибкам, расхождениям в названиях позиций и непрозрачности цифр для руководства.</p>
+          </div>
+          <div class="case-block">
+            <span class="case-label">Решение</span>
+            <p class="case-text">Внедрена централизованная система расчётов: программа форматирует план, подставляет нормативы времени для 95% позиций, собирает расчётные таблицы и формирует отчёт. Специалист сосредоточен на нормах для новых уникальных изделий.</p>
+          </div>
+        </div>
+        <div class="case-footer">
+          <div class="case-results">
+            <span class="case-label">Результат</span>
+            <p class="case-result-item">• Скорость: цикл расчёта сократился в 2 раза — с 10 до 5 рабочих дней</p>
+            <p class="case-result-item">• Эффективность: ручной труд инженера-нормировщика снижен на 50%</p>
+            <p class="case-result-item">• Прозрачность: любой расчёт можно быстро проверить — видна цепочка от плана производства до итоговой цифры</p>
+            <p class="case-result-item">• Качество: исключены ошибки из‑за ручного копирования и разных наименований одной позиции</p>
+          </div>
+          <div class="case-block">
+            <span class="case-label">Кому подходит</span>
+            <p class="case-text">Производственным и крупным сервисным компаниям, где регулярно (ежеквартально или ежегодно) считается нормативная численность под меняющуюся программу</p>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <h3 class="case-title">ИИ-сборка бизнес-глоссария из документов</h3>
+        <div class="case-content">
+          <div class="case-block">
+            <span class="case-label">Проблема</span>
+            <p class="case-text">В компании каждый отдел оперирует своими терминами, а объём понятий растёт быстрее, чем их успевают фиксировать. Ручная сборка глоссария это месяцы работы: сотни часов интервью, согласований и правок. Команды выгорают на полпути, а глоссарий устаревает быстрее, чем его успевают довести до конца.</p>
+          </div>
+          <div class="case-block">
+            <span class="case-label">Решение</span>
+            <p class="case-text">Внедрена ИИ-сборка: система читает документы, извлекает термины, выстраивает связи между ними и собирает глоссарий за часы. Визуализация в виде графа связей даёт наглядную картину «вселенной» понятий компании. То, что раньше требовало большой команды аналитиков, теперь делается автоматически, с возможностью регулярного обновления по новым материалам.</p>
+          </div>
+        </div>
+        <div class="case-footer">
+          <div class="case-results">
+            <span class="case-label">Результат</span>
+            <p class="case-result-item">• Скорость: глоссарий собирается из документов за часы вместо месяцев ручной работы, без массовых интервью</p>
+            <p class="case-result-item">• Эффективность: трудозатраты на первичную сборку и актуализацию радикально снижаются, фокус переносится на согласование и утверждение</p>
+            <p class="case-result-item">• Масштабируемость: можно обрабатывать сотни документов и тысячи терминов без пропорционального роста команды</p>
+            <p class="case-result-item">• Прозрачность: связи между терминами видны на графе, поэтому проще находить расхождения в понимании между подразделениями</p>
+          </div>
+          <div class="case-block">
+            <span class="case-label">Кому подходит</span>
+            <p class="case-text">Компаниям с разветвлённой структурой, где важно иметь единый бизнес-глоссарий</p>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <h3 class="case-title">Дашборды для руководителя</h3>
+        <div class="case-content">
+          <div class="case-block">
+            <span class="case-label">Проблема</span>
+            <p class="case-text">Руководство и команда не видят общей картины: выручка, план-факт, конверсия продаж, загрузка производства разбросаны по разным отчётам. Анализ отчётов занимает много времени и не даёт оперативной информации.</p>
+          </div>
+          <div class="case-block">
+            <span class="case-label">Решение</span>
+            <p class="case-text">Настроен автоматический сбор данных из БД или других хранилищ, развёрнуты дашборды. Ключевые метрики (выручка, прибыль, конверсия, NPS, загрузка) обновляются в реальном времени.</p>
+          </div>
+        </div>
+        <div class="case-footer">
+          <div class="case-results">
+            <span class="case-label">Результат</span>
+            <p class="case-result-item">• Прозрачность: единая панель для руководства с ключевыми метриками бизнеса</p>
+            <p class="case-result-item">• Скорость реакции: можно вовремя принять меры при отклонениях от плана</p>
+            <p class="case-result-item">• Анализ: возможность смотреть тренды и измерять эффективность решений</p>
+          </div>
+          <div class="case-block">
+            <span class="case-label">Кому подходит</span>
+            <p class="case-text">Руководителям и командам для принятия решений на основе данных в реальном времени</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1113,7 +1215,7 @@ img {
         <h3 class="mentor-subtitle">От хаоса к системе</h3>
         <p class="mentor-desc">Я понимаю, с какими вызовами предприниматели сталкиваются каждый день. Предлагаю программу личного ИИ-наставника, чтобы разобраться с этими проблемами и освободить время для стратегии.</p>
       </div>
-      <a href="http://course.data-master.pro/" class="mentor-btn" target="_blank" rel="noopener">Читать подробнее</a>
+      <a href="course.html" class="mentor-btn">Читать подробнее</a>
     </div>
     <div class="mentor-grid">
       <div class="mentor-col">
@@ -1233,6 +1335,41 @@ img {
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     lucide.createIcons();
+
+    // Cases carousel
+    const casesGrid = document.querySelector('.cases-grid');
+    const caseCards = document.querySelectorAll('.case-card');
+    const prevBtn = document.querySelector('.cases-nav-btn--prev');
+    const nextBtn = document.querySelector('.cases-nav-btn--next');
+
+    let currentCaseIndex = 0;
+
+    function showCase(index) {
+      // Remove active class from all cards
+      caseCards.forEach(card => card.classList.remove('active'));
+
+      // Add active class to current card
+      caseCards[index].classList.add('active');
+
+      // Update current index
+      currentCaseIndex = index;
+    }
+
+    function nextCase() {
+      const nextIndex = (currentCaseIndex + 1) % caseCards.length;
+      showCase(nextIndex);
+    }
+
+    function prevCase() {
+      const prevIndex = (currentCaseIndex - 1 + caseCards.length) % caseCards.length;
+      showCase(prevIndex);
+    }
+
+    // Event listeners
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', prevCase);
+      nextBtn.addEventListener('click', nextCase);
+    }
   </script>
 </body>
 </html>

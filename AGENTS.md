@@ -4,7 +4,7 @@ tags:
 area: data-master
 owner: Vlad Kamensky
 status: active
-last_updated: 2026-01-27
+last_updated: 2026-02-08
 refs:
   - "[[file naming convention]]"
 ---
@@ -28,9 +28,12 @@ refs:
 
 ### 2. Workflow обновления
 
+**GitHub Pages:**
 1. Редактировать файлы в `docs/` (index.html, assets/)
 2. Закоммитить: `git add docs/` → `git commit` → `git push`
 3. GitHub Pages автоматически обновится через 1-2 минуты
+
+**REG.ru (дублирование на хостинг):** см. раздел [Выкладка на REG.ru](#выкладка-на-regru-sftp) ниже.
 
 ### 3. Hero-блок: утверждённый контент и стили
 
@@ -52,6 +55,38 @@ refs:
 ## Локальный просмотр
 
 Открыть в браузере: `docs/index.html`
+
+---
+
+## Выкладка на REG.ru (SFTP)
+
+Сайт дублируется на хостинг REG.ru через SFTP (доступ: панель ISPmanager, SSH, SFTP).
+
+**Данные:**
+- **Хост:** `server15.hosting.reg.ru`
+- **Логин:** `u3408190`
+- **Путь на сервере:** `www/data-master.pro/` (относительно домашней папки, без ведущего слеша)
+- **Пароль:** не хранить в репозитории; вводить по запросу при выполнении команд.
+
+**Порядок действий:**
+
+1. Перейти в папку проекта:
+   ```bash
+   cd "/Users/vladkamensky/Yandex.Disk.localized/Obsidian Vault/40 project/DataMaster.PRO main landing page {data-master}"
+   ```
+
+2. Если каталог на сервере ещё не создан — создать по SSH:
+   ```bash
+   ssh u3408190@server15.hosting.reg.ru "mkdir -p www/data-master.pro"
+   ```
+
+3. Загрузить содержимое `docs/` (index.html, CNAME, assets/):
+   ```bash
+   scp -r docs/* u3408190@server15.hosting.reg.ru:www/data-master.pro/
+   ```
+   По запросу ввести пароль от учётки.
+
+**Важно:** использовать путь `www/data-master.pro/` без ведущего слеша — при SFTP домашняя директория пользователя является корнем, полный путь `/www/data-master.pro/` приведёт к ошибке «No such file or directory».
 
 ---
 
