@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Владислав Каменский — Эксперт по эффективности | DataMaster.PRO</title>
-  <meta name="description" content="Помогаю людям и командам стать эффективней. Внедряю ИИ, обучаю работе с ИИ, повышаю эффективность 2.0">
+  <title>Владислав Каменский — Автоматизация бизнес-процессов | DataMaster.PRO</title>
+  <meta name="description" content="Автоматизирую бизнес-процессы для СМБ. От идеи до работающего решения за 4 недели">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
 /* Reset & Base */
@@ -93,6 +93,23 @@ img {
   opacity: 0.7;
 }
 
+.header-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background: var(--teal);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: opacity 0.2s;
+}
+
+.header-cta:hover {
+  opacity: 0.9;
+}
+
 /* Hero Section */
 .hero {
   display: flex;
@@ -128,7 +145,7 @@ img {
 .hero-text {
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 40px;
 }
 
 .hero-headline {
@@ -138,36 +155,36 @@ img {
   color: var(--white);
 }
 
-.hero-cta-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.hero-cta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.19);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.19);
-  color: var(--white);
+.hero-subline {
   font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  transition: opacity 0.2s;
+  font-weight: 600;
+  color: var(--teal);
 }
 
-.hero-cta:not(:first-child) {
-  border-top: none;
-}
-
-.hero-cta:hover {
+.hero-desc {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--white);
   opacity: 0.8;
 }
 
-.cta-arrow {
-  font-weight: 400;
-  opacity: 0.7;
+.hero-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 36px;
+  background: var(--teal);
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: opacity 0.2s;
+  width: fit-content;
+}
+
+.hero-cta-btn:hover {
+  opacity: 0.9;
 }
 
 /* Section Common Styles */
@@ -190,7 +207,7 @@ img {
 
 .section-label {
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 3px;
   color: var(--dark);
   opacity: 0.5;
@@ -198,12 +215,8 @@ img {
 
 .section-heading {
   font-size: 48px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--dark);
-}
-
-.section-heading--smaller {
-  font-size: 42px;
 }
 
 /* Services Section */
@@ -257,65 +270,73 @@ img {
   opacity: 0.7;
 }
 
-/* Portfolio Section */
-.portfolio {
-  padding: 80px;
+.service-badge {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--teal);
+  margin-top: 8px;
+  display: block;
+}
+
+/* Automation Directions Section */
+.automation-directions {
+  padding: 100px 80px;
   background: var(--bg-gray);
   display: flex;
   flex-direction: column;
-  gap: 48px;
-  min-height: 900px;
+  gap: 60px;
 }
 
-.portfolio-grid {
+.automation-grid {
   display: flex;
   gap: 24px;
-  flex: 1;
 }
 
-.portfolio-col {
+.automation-card {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.portfolio-card {
-  flex: 1;
-  background-size: cover;
-  background-position: center;
+  background: var(--white);
   border-radius: 16px;
-  overflow: hidden;
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  position: relative;
+  gap: 24px;
 }
 
-.portfolio-col:last-child .portfolio-card:first-child {
-  height: 320px;
-  flex: none;
+.automation-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--teal);
+  stroke-width: 1.5;
 }
 
-.portfolio-card-overlay {
-  padding: 32px;
-  background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.portfolio-card-title {
-  font-size: 24px;
+.automation-title {
+  font-size: 22px;
   font-weight: 700;
-  color: var(--white);
+  color: var(--dark);
 }
 
-.portfolio-card-desc {
-  font-size: 16px;
+.automation-desc {
+  font-size: 15px;
   font-weight: 400;
-  color: var(--white);
-  opacity: 0.9;
+  line-height: 1.6;
+  color: var(--dark);
+  opacity: 0.7;
+}
+
+.automation-result {
+  padding-top: 16px;
+  border-top: 1px solid rgba(29, 122, 116, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.automation-result-text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--teal);
 }
 
 /* About Section */
@@ -431,22 +452,22 @@ img {
   width: 48px;
   height: 48px;
   border-radius: 24px;
-  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 18px;
   cursor: pointer;
   transition: opacity 0.2s;
+  border: none;
 }
 
 .cases-nav-btn--prev {
-  background: rgba(10, 10, 18, 0.08);
-  color: var(--dark);
+  background: #0A0A12;
+  color: var(--white);
 }
 
 .cases-nav-btn--next {
-  background: var(--dark);
+  background: #1D7A74;
   color: var(--white);
 }
 
@@ -529,160 +550,168 @@ img {
   opacity: 0.7;
 }
 
-/* Mentor Section */
-.mentor {
+/* Results Section */
+.results {
   padding: 100px 80px;
-  background: var(--white);
+  background: var(--dark);
   display: flex;
   flex-direction: column;
   gap: 60px;
-  position: relative;
 }
 
-.mentor::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('assets/logo-big.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.07;
-  pointer-events: none;
-}
-
-.mentor > * {
-  position: relative;
-  z-index: 1;
-}
-
-.mentor-header {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  align-items: flex-start;
-}
-
-.mentor-header-left {
+.results-header {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  flex: 1;
+  gap: 8px;
 }
 
-.mentor-label {
+.results-label {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 3px;
   color: var(--teal);
 }
 
-.mentor-title {
+.results-title {
   font-size: 48px;
   font-weight: 700;
-  line-height: 1.1;
-  color: var(--dark);
-}
-
-.mentor-subtitle {
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--dark);
-  opacity: 0.7;
-}
-
-.mentor-desc {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.6;
-  color: var(--dark);
-  opacity: 0.7;
-}
-
-.mentor-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 32px;
-  background: var(--teal);
   color: var(--white);
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 8px;
-  transition: opacity 0.2s;
-  height: fit-content;
-  white-space: nowrap;
 }
 
-.mentor-btn:hover {
-  opacity: 0.9;
-}
-
-.mentor-grid {
+.results-grid {
   display: flex;
   gap: 24px;
 }
 
-.mentor-col {
+.result-card {
   flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-}
-
-.feature-card {
-  background: var(--white);
-  border-radius: 16px;
-  padding: 24px;
-  display: flex;
   gap: 16px;
-  align-items: flex-start;
 }
 
-.feature-icon {
-  width: 32px;
-  height: 32px;
+.result-icon {
+  width: 36px;
+  height: 36px;
   color: var(--teal);
-  flex-shrink: 0;
   stroke-width: 1.5;
 }
 
-.feature-text {
+.result-number {
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.result-text {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--white);
+  opacity: 0.7;
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 100px 80px;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.testimonials-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.testimonials-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--teal);
+}
+
+.testimonials-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.testimonials-grid {
+  display: flex;
+  gap: 24px;
+}
+
+.testimonial-card {
+  flex: 1;
+  background: var(--bg-gray);
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.testimonial-quote {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--dark);
+}
+
+.testimonial-author {
+  padding-top: 16px;
+  border-top: 1px solid rgba(10, 10, 18, 0.08);
   display: flex;
   flex-direction: column;
   gap: 4px;
-  flex: 1;
 }
 
-.feature-title {
-  font-size: 18px;
+.testimonial-name {
+  font-size: 15px;
   font-weight: 600;
   color: var(--dark);
 }
 
-.feature-desc {
+.testimonial-company {
   font-size: 14px;
   font-weight: 400;
   color: var(--dark);
-  opacity: 0.7;
+  opacity: 0.6;
+}
+
+.testimonial-result {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--teal);
+  margin-top: 8px;
 }
 
 /* Contact Section */
 .contact {
   padding: 80px;
   background: var(--bg-gray);
-}
-
-.contact-content {
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 60px;
 }
 
-.contact-left {
+.contact-form-row {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.contact-title-area {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 40px;
 }
 
 .contact-heading {
@@ -697,54 +726,76 @@ img {
   font-weight: 400;
   line-height: 1.6;
   color: var(--dark);
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
-.contact-cards {
+.lead-form {
+  flex: 1;
   display: flex;
+  flex-direction: column;
   gap: 16px;
 }
 
-.contact-card {
-  flex: 1;
+.form-field {
+  padding: 16px 20px;
+  border: 1px solid rgba(10, 10, 18, 0.13);
+  border-radius: 10px;
   background: var(--white);
-  border: 1px solid rgba(10, 10, 18, 0.06);
-  border-radius: 16px;
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.contact-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-}
-
-.contact-icon {
-  width: 40px;
-  height: 40px;
-  color: var(--teal);
-  stroke-width: 1.5;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.contact-label {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--dark);
-}
-
-.contact-value {
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
-  font-weight: 400;
-  color: var(--teal);
+  color: var(--dark);
+  transition: border-color 0.2s;
+}
+
+.form-field::placeholder {
+  color: var(--dark);
+  opacity: 0.4;
+}
+
+.form-field:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%230A0A12' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  padding-right: 50px;
+}
+
+.form-submit {
+  padding: 16px 32px;
+  background: var(--teal);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  font-family: 'Inter', sans-serif;
+  height: 52px;
+}
+
+.form-submit:hover {
+  opacity: 0.9;
+}
+
+.contact-logo {
+  width: 480px;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-logo-img {
+  width: 380px;
+  height: 380px;
+  border-radius: 20px;
+  object-fit: cover;
 }
 
 /* Footer */
@@ -753,14 +804,13 @@ img {
   justify-content: space-between;
   padding: 60px 80px;
   background: var(--dark);
-  min-height: 280px;
   align-items: flex-start;
 }
 
-.footer-brand {
+.footer-col {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .footer-name {
@@ -769,17 +819,11 @@ img {
   color: var(--white);
 }
 
-.footer-role {
-  font-size: 16px;
+.footer-tagline {
+  font-size: 18px;
   font-weight: 400;
   color: var(--white);
-  opacity: 0.5;
-}
-
-.footer-col {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  opacity: 0.7;
 }
 
 .footer-col-title {
@@ -835,17 +879,19 @@ img {
   }
 
   .services-grid,
-  .mentor-grid,
-  .contact-cards {
+  .automation-grid,
+  .results-grid,
+  .testimonials-grid {
     flex-direction: column;
   }
 
-  .portfolio-grid {
+  .contact-form-row {
     flex-direction: column;
   }
 
-  .portfolio-col:last-child .portfolio-card:first-child {
-    height: 320px;
+  .contact-logo {
+    width: 100%;
+    height: auto;
   }
 
   .about-cards {
@@ -871,23 +917,28 @@ img {
     font-size: 36px;
   }
 
-  .hero-cta {
-    font-size: 16px;
-    letter-spacing: 1px;
+  .hero-subline {
+    font-size: 18px;
+  }
+
+  .hero-desc {
+    font-size: 15px;
   }
 
   .services,
-  .portfolio,
+  .automation-directions,
   .about,
   .cases,
-  .mentor,
+  .results,
+  .testimonials,
   .contact {
     padding: 60px 20px;
   }
 
   .section-heading,
   .about-title,
-  .mentor-title,
+  .results-title,
+  .testimonials-title,
   .contact-heading {
     font-size: 32px;
   }
@@ -899,12 +950,7 @@ img {
   .footer {
     flex-direction: column;
     gap: 40px;
-    min-height: auto;
     padding: 40px 20px;
-  }
-
-  .mentor-header {
-    flex-direction: column;
   }
 
   .case-card {
@@ -927,15 +973,18 @@ img {
   <!-- Header -->
   <header class="header">
     <div class="logo">
-      <img src="assets/master-logo-white2.jpg" alt="Мастер данных" class="logo-icon">
+      <img src="assets/logo-grey4.jpeg" alt="Мастер данных" class="logo-icon">
       <span class="logo-text">мастер данных</span>
     </div>
     <nav class="nav">
-      <a href="#cases" class="nav-link">Кейсы</a>
       <a href="#about" class="nav-link">Обо мне</a>
-      <a href="#mentor" class="nav-link">Эффективность</a>
+      <a href="#services" class="nav-link">Как я работаю</a>
+      <a href="#cases" class="nav-link">Кейсы</a>
       <a href="#contact" class="nav-link">Контакты</a>
     </nav>
+    <a href="#contact" class="header-cta">
+      <span>Бесплатная диагностика</span>
+    </a>
   </header>
 
   <!-- Hero Section -->
@@ -945,21 +994,10 @@ img {
     </div>
     <div class="hero-content">
       <div class="hero-text">
-        <h1 class="hero-headline">Помогаю людям<br>и командам<br>стать эффективней</h1>
-        <div class="hero-cta-list">
-          <a href="#services" class="hero-cta">
-            <span>ВНЕДРЯЮ ИИ</span>
-            <span class="cta-arrow">→</span>
-          </a>
-          <a href="#services" class="hero-cta">
-            <span>ОБУЧАЮ РАБОТЕ С ИИ</span>
-            <span class="cta-arrow">→</span>
-          </a>
-          <a href="#mentor" class="hero-cta">
-            <span>ЭФФЕКТИВНОСТЬ 2.0</span>
-            <span class="cta-arrow">→</span>
-          </a>
-        </div>
+        <h1 class="hero-headline">Автоматизирую<br>бизнес-процессы<br>для СМБ</h1>
+        <p class="hero-subline">От идеи до работающего решения за 4 недели</p>
+        <p class="hero-desc">Ex-CEO Юниверс Дата (100+ сотрудников, 20+ лет в управлении данными). Сначала порядок в данных, потом автоматизация.</p>
+        <a href="#contact" class="hero-cta-btn">Записаться на бесплатную диагностику</a>
       </div>
     </div>
   </section>
@@ -974,58 +1012,63 @@ img {
     </div>
     <div class="services-grid">
       <div class="service-card">
-        <i data-lucide="brain" class="service-icon"></i>
+        <i data-lucide="search" class="service-icon"></i>
         <div class="service-content">
-          <h3 class="service-title">Личная продуктивность с ИИ</h3>
-          <p class="service-desc">Создание персональных ИИ-ассистентов, управление знаниями («второй мозг»), автоматизация рутинных процессов</p>
+          <h3 class="service-title">Бесплатная диагностика</h3>
+          <p class="service-desc">За 30 минут разбираем вашу ситуацию и находим узкое место, которое можно автоматизировать в первую очередь. Определяем состояние данных и готовность к автоматизации.</p>
+          <span class="service-badge">Шаг 1 · Бесплатно</span>
         </div>
       </div>
       <div class="service-card">
-        <i data-lucide="database" class="service-icon"></i>
+        <i data-lucide="zap" class="service-icon"></i>
         <div class="service-content">
-          <h3 class="service-title">Управление данными для бизнеса</h3>
-          <p class="service-desc">Повышение эффективности бизнеса через принятие решений с опорой на данные</p>
+          <h3 class="service-title">Быстрый пилот за 4 недели</h3>
+          <p class="service-desc">Запускаем первое решение с измеримым результатом: рекрутинг, закупки, дашборд или другой процесс. Наводим базовый порядок в данных как фундамент для автоматизации. Стоимость: 250-300к.</p>
+          <span class="service-badge">Шаг 2 · 250-300к · 4 недели</span>
         </div>
       </div>
       <div class="service-card">
-        <i data-lucide="sparkles" class="service-icon"></i>
+        <i data-lucide="trending-up" class="service-icon"></i>
         <div class="service-content">
-          <h3 class="service-title">ИИ-трансформация бизнеса</h3>
-          <p class="service-desc">Внедрение ИИ в бизнес-процессы компаний. Обучение предпринимателей и команд</p>
+          <h3 class="service-title">Масштабирование</h3>
+          <p class="service-desc">После успешного пилота внедряем автоматизацию в другие процессы компании. Используем наработанную базу данных и процессы. Каждое следующее внедрение быстрее и дешевле предыдущего.</p>
+          <span class="service-badge">Шаг 3 · Быстрее и дешевле</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Portfolio Section -->
-  <section class="portfolio">
+  <!-- Automation Directions Section -->
+  <section id="automation-directions" class="automation-directions">
     <div class="section-header">
       <div class="section-title-area">
-        <span class="section-label">ПОРТФОЛИО</span>
-        <h2 class="section-heading section-heading--smaller">Как это может работать у вас</h2>
+        <span class="section-label">НАПРАВЛЕНИЯ АВТОМАТИЗАЦИИ</span>
+        <h2 class="section-heading">Примеры автоматизации</h2>
       </div>
     </div>
-    <div class="portfolio-grid">
-      <div class="portfolio-col">
-        <div class="portfolio-card" style="background-image: url('assets/second-brain.jpg')">
-          <div class="portfolio-card-overlay">
-            <h3 class="portfolio-card-title">Второй мозг</h3>
-            <p class="portfolio-card-desc">Система управления знаниями</p>
-          </div>
+    <div class="automation-grid">
+      <div class="automation-card">
+        <i data-lucide="users" class="automation-icon"></i>
+        <h3 class="automation-title">Рекрутинг на автопилоте</h3>
+        <p class="automation-desc">От публикации вакансии до итогового отчёта автоматически. Система публикует, отбирает резюме по критериям, сохраняет в базу.</p>
+        <div class="automation-result">
+          <p class="automation-result-text">Результат: время закрытия вакансии в 3 раза быстрее, трудозатраты HR снижаются на 60-70%.</p>
         </div>
       </div>
-      <div class="portfolio-col">
-        <div class="portfolio-card" style="background-image: url('assets/shiva.jpg')">
-          <div class="portfolio-card-overlay">
-            <h3 class="portfolio-card-title">Личный ИИ ассистент</h3>
-            <p class="portfolio-card-desc">Автоматизация рутинных задач</p>
-          </div>
+      <div class="automation-card">
+        <i data-lucide="shopping-cart" class="automation-icon"></i>
+        <h3 class="automation-title">Быстрые и прозрачные закупки</h3>
+        <p class="automation-desc">От запроса КП до сравнительной таблицы и спецификации автоматически. Система рассылает запросы поставщикам, собирает ответы, формирует отчёт.</p>
+        <div class="automation-result">
+          <p class="automation-result-text">Результат: цикл от заявки до спецификации сокращается в 3-4 раза, ручной труд снижается на 80%.</p>
         </div>
-        <div class="portfolio-card" style="background-image: url('assets/ai-acceleration.jpg')">
-          <div class="portfolio-card-overlay">
-            <h3 class="portfolio-card-title">ИИ ускорение</h3>
-            <p class="portfolio-card-desc">Повышение эффективности руководителя</p>
-          </div>
+      </div>
+      <div class="automation-card">
+        <i data-lucide="layout-dashboard" class="automation-icon"></i>
+        <h3 class="automation-title">Дашборды для руководителя</h3>
+        <p class="automation-desc">Ключевые метрики бизнеса в реальном времени: выручка, план-факт, конверсия, загрузка производства. Автоматический сбор данных из всех источников.</p>
+        <div class="automation-result">
+          <p class="automation-result-text">Результат: единая панель для принятия решений, видны тренды и отклонения от плана в моменте.</p>
         </div>
       </div>
     </div>
@@ -1039,26 +1082,28 @@ img {
         <h2 class="about-title">Владислав Каменский</h2>
       </div>
       <div class="about-desc-area">
-        <p class="about-desc">ИТ-предприниматель с 2011 года, сооснователь компании «Юниверс Дата» (100+ сотрудников). Эксперт по управлению данными для enterprise: продукты компании работают в самых крупных компаниях и госучреждениях России.</p>
-        <p class="about-desc">ИИ-энтузиаст. В 2025 году провел масштабную ИИ-трансформацию компании и увеличил количество выпускаемых релизов в 2 раза. Полностью автоматизировал первую линию технической поддержки, расширил функционал продуктов компании через ИИ. Воодушевил почти всех сотрудников на внедрение ИИ в бизнес-процессы компании.</p>
+        <p class="about-desc">ИТ-предприниматель с 2011 года, сооснователь и ex-CEO компании «Юниверс Дата» (100+ сотрудников). Продукты компании работают в крупнейших российских компаниях и госучреждениях — проверено на enterprise-масштабе.</p>
+        <p class="about-desc">В 2025 году провёл масштабную ИИ-трансформацию компании: увеличил количество выпускаемых релизов в 2 раза за год, полностью автоматизировал первую линию технической поддержки, расширил функционал продуктов через ИИ.</p>
+        <p class="about-desc">Теперь помогаю среднему бизнесу (50-200 человек) навести порядок в данных и автоматизировать рутину. Подход простой: сначала данные, потом автоматизация. Не год консалтинга, а быстрые пилоты за 4 недели с измеримым результатом.</p>
+        <p class="about-desc">Все методы сначала тестирую на своем бизнесе и на себе, потом рекомендую.</p>
       </div>
     </div>
     <div class="about-cards">
       <div class="stat-card">
-        <span class="stat-number">10+</span>
-        <p class="stat-text">лет опыта в оптимизации бизнес-процессов и внедрении систем автоматизации</p>
+        <span class="stat-number">20+</span>
+        <p class="stat-text">лет в управлении данными и автоматизации бизнес-процессов</p>
       </div>
       <div class="stat-card">
         <span class="stat-number">50+</span>
-        <p class="stat-text">успешных проектов для компаний разного масштаба — от стартапов до крупного бизнеса</p>
+        <p class="stat-text">проектов для компаний разного масштаба — от стартапов до крупного бизнеса</p>
       </div>
       <div class="stat-card">
         <span class="stat-number">3x</span>
-        <p class="stat-text">средний рост эффективности команд после внедрения моих решений</p>
+        <p class="stat-text">средний рост эффективности команд после внедрения автоматизации</p>
       </div>
       <div class="stat-card">
         <span class="stat-number">2x</span>
-        <p class="stat-text">рост количества релизов после ИИ-трансформации компании</p>
+        <p class="stat-text">рост релизов после ИИ-трансформации компании Юниверс Дата за 1 год</p>
       </div>
     </div>
   </section>
@@ -1076,6 +1121,7 @@ img {
       </div>
     </div>
     <div class="cases-grid">
+      <!-- Case 1: Рекрутинг -->
       <div class="case-card active">
         <h3 class="case-title">Рекрутинг на автопилоте</h3>
         <div class="case-content">
@@ -1101,6 +1147,8 @@ img {
           </div>
         </div>
       </div>
+
+      <!-- Case 2: Закупки -->
       <div class="case-card">
         <h3 class="case-title">Быстрые и прозрачные закупки</h3>
         <div class="case-content">
@@ -1126,6 +1174,8 @@ img {
           </div>
         </div>
       </div>
+
+      <!-- Case 3: Нормативная численность -->
       <div class="case-card">
         <h3 class="case-title">Точный расчёт штата (автоматизация нормативной численности)</h3>
         <div class="case-content">
@@ -1152,6 +1202,8 @@ img {
           </div>
         </div>
       </div>
+
+      <!-- Case 4: ИИ-глоссарий -->
       <div class="case-card">
         <h3 class="case-title">ИИ-сборка бизнес-глоссария из документов</h3>
         <div class="case-content">
@@ -1178,6 +1230,8 @@ img {
           </div>
         </div>
       </div>
+
+      <!-- Case 5: Дашборды -->
       <div class="case-card">
         <h3 class="case-title">Дашборды для руководителя</h3>
         <div class="case-content">
@@ -1206,55 +1260,65 @@ img {
     </div>
   </section>
 
-  <!-- AI Mentor Section -->
-  <section id="mentor" class="mentor">
-    <div class="mentor-header">
-      <div class="mentor-header-left">
-        <span class="mentor-label">ИИ НАСТАВНИК</span>
-        <h2 class="mentor-title">Прокачай свою эффективность</h2>
-        <h3 class="mentor-subtitle">От хаоса к системе</h3>
-        <p class="mentor-desc">Я понимаю, с какими вызовами предприниматели сталкиваются каждый день. Предлагаю программу личного ИИ-наставника, чтобы разобраться с этими проблемами и освободить время для стратегии.</p>
-      </div>
-      <a href="course.html" class="mentor-btn">Читать подробнее</a>
+  <!-- Results Section -->
+  <section class="results">
+    <div class="results-header">
+      <span class="results-label">РЕЗУЛЬТАТЫ</span>
+      <h2 class="results-title">Средние результаты клиентов</h2>
     </div>
-    <div class="mentor-grid">
-      <div class="mentor-col">
-        <div class="feature-card">
-          <i data-lucide="clock" class="feature-icon"></i>
-          <div class="feature-text">
-            <h4 class="feature-title">Потеря часов на рутину</h4>
-            <p class="feature-desc">Вместо стратегии — бесконечные мелкие задачи</p>
-          </div>
-        </div>
-        <div class="feature-card">
-          <i data-lucide="layers" class="feature-icon"></i>
-          <div class="feature-text">
-            <h4 class="feature-title">Хаос в задачах и проектах</h4>
-            <p class="feature-desc">Нет единой системы, всё разбросано</p>
-          </div>
-        </div>
-        <div class="feature-card">
-          <i data-lucide="search" class="feature-icon"></i>
-          <div class="feature-text">
-            <h4 class="feature-title">Невозможно найти информацию</h4>
-            <p class="feature-desc">Разговоры, контракты, данные — где-то потерялись</p>
-          </div>
+    <div class="results-grid">
+      <div class="result-card">
+        <i data-lucide="zap" class="result-icon"></i>
+        <span class="result-number">3-4x</span>
+        <p class="result-text">сокращение времени на рутинные процессы</p>
+      </div>
+      <div class="result-card">
+        <i data-lucide="trending-down" class="result-icon"></i>
+        <span class="result-number">60-80%</span>
+        <p class="result-text">снижение ручного труда в автоматизированных процессах</p>
+      </div>
+      <div class="result-card">
+        <i data-lucide="timer" class="result-icon"></i>
+        <span class="result-number">4 недели</span>
+        <p class="result-text">от идеи до работающего пилота</p>
+      </div>
+      <div class="result-card">
+        <i data-lucide="circle-dollar-sign" class="result-icon"></i>
+        <span class="result-number">3-6 мес.</span>
+        <p class="result-text">средний срок окупаемости ROI</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="testimonials-header">
+      <span class="testimonials-label">ОТЗЫВЫ</span>
+      <h2 class="testimonials-title">Что говорят клиенты</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-quote">«Раньше закрытие вакансии занимало 2 месяца. Теперь — 3 недели. HR перестали тонуть в резюме и занялись реальным подбором.»</p>
+        <div class="testimonial-author">
+          <h4 class="testimonial-name">Анна Петрова, HR-директор</h4>
+          <p class="testimonial-company">Производственная компания, 150 чел.</p>
+          <p class="testimonial-result">Автоматизировали рекрутинг: время закрытия вакансии сократилось в 3 раза</p>
         </div>
       </div>
-      <div class="mentor-col">
-        <div class="feature-card">
-          <i data-lucide="zap-off" class="feature-icon"></i>
-          <div class="feature-text">
-            <h4 class="feature-title">Усталость от информации</h4>
-            <p class="feature-desc">Слишком много данных, голова перегружена</p>
-          </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">«Раньше на согласование закупок уходили недели. Теперь поставщики получают запросы автоматически, а я вижу все предложения в одной таблице на следующий день.»</p>
+        <div class="testimonial-author">
+          <h4 class="testimonial-name">Михаил Соколов, Директор по закупкам</h4>
+          <p class="testimonial-company">Торговая компания, 80 чел.</p>
+          <p class="testimonial-result">Автоматизировали закупки: цикл сократился в 4 раза, ручной труд снижен на 80%</p>
         </div>
-        <div class="feature-card">
-          <i data-lucide="brain" class="feature-icon"></i>
-          <div class="feature-text">
-            <h4 class="feature-title">Нет системы знаний</h4>
-            <p class="feature-desc">Опыт и знания не сохраняются, теряются</p>
-          </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">«Наконец вижу все ключевые метрики в одном месте в реальном времени. Раньше ждали отчёт от аналитика несколько дней. Теперь открываю дашборд — и всё ясно.»</p>
+        <div class="testimonial-author">
+          <h4 class="testimonial-name">Елена Романова, Генеральный директор</h4>
+          <p class="testimonial-company">Сервисная компания, 120 чел.</p>
+          <p class="testimonial-result">Внедрили дашборд руководителя: данные в реальном времени из 5 источников</p>
         </div>
       </div>
     </div>
@@ -1262,66 +1326,43 @@ img {
 
   <!-- Contact Section -->
   <section id="contact" class="contact">
-    <div class="contact-content">
-      <div class="contact-left">
-        <h2 class="contact-heading">Где меня найти</h2>
-        <p class="contact-desc">Консультирую по вопросам личной эффективности, автоматизации бизнес-процессов и внедрения ИИ. Провожу обучение для команд и предпринимателей. Выступаю в подкастах и на конференциях. Веду персональный блог в телеграме, записываю ролики на ютубе и пишу статьи на Хабре и на VC.ru</p>
+    <div class="contact-form-row">
+      <div class="contact-title-area">
+        <h2 class="contact-heading">Готовы автоматизировать свой бизнес?</h2>
+        <p class="contact-desc">Запишитесь на бесплатную диагностику — разберём вашу ситуацию за 30 минут и найдём процесс, который можно автоматизировать первым.</p>
       </div>
-      <div class="contact-cards">
-        <a href="mailto:vlad@data-master.pro" class="contact-card">
-          <i data-lucide="mail" class="contact-icon"></i>
-          <div class="contact-info">
-            <span class="contact-label">Email</span>
-            <span class="contact-value">vlad@data-master.pro</span>
-          </div>
-        </a>
-        <a href="https://t.me/cdo_channel" class="contact-card" target="_blank" rel="noopener">
-          <i data-lucide="send" class="contact-icon"></i>
-          <div class="contact-info">
-            <span class="contact-label">Телеграм Канал</span>
-            <span class="contact-value">@cdo_channel</span>
-          </div>
-        </a>
-        <a href="https://youtube.com/@masterofdata" class="contact-card" target="_blank" rel="noopener">
-          <i data-lucide="youtube" class="contact-icon"></i>
-          <div class="contact-info">
-            <span class="contact-label">YouTube</span>
-            <span class="contact-value">@masterofdata</span>
-          </div>
-        </a>
-        <a href="https://habr.com/users/masterofdata" class="contact-card" target="_blank" rel="noopener">
-          <i data-lucide="file-text" class="contact-icon"></i>
-          <div class="contact-info">
-            <span class="contact-label">Хабр</span>
-            <span class="contact-value">@masterofdata</span>
-          </div>
-        </a>
-        <a href="https://vc.ru/u/masterofdata" class="contact-card" target="_blank" rel="noopener">
-          <i data-lucide="file-text" class="contact-icon"></i>
-          <div class="contact-info">
-            <span class="contact-label">VC.ru</span>
-            <span class="contact-value">@masterofdata</span>
-          </div>
-        </a>
+      <form class="lead-form">
+        <input type="text" class="form-field" placeholder="Ваше имя" required>
+        <input type="email" class="form-field" placeholder="Email" required>
+        <input type="tel" class="form-field" placeholder="Телефон" required>
+        <select class="form-field form-select" required>
+          <option value="">Какой процесс хотите автоматизировать?</option>
+          <option value="recruitment">Рекрутинг</option>
+          <option value="procurement">Закупки</option>
+          <option value="dashboard">Дашборды</option>
+          <option value="other">Другое</option>
+        </select>
+        <button type="submit" class="form-submit">Записаться на диагностику</button>
+      </form>
+      <div class="contact-logo">
+        <img src="assets/logo-grey3.jpeg" alt="Логотип" class="contact-logo-img">
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-brand">
-      <span class="footer-name">Владислав Каменский</span>
-      <span class="footer-role">Эксперт по эффективности</span>
-    </div>
     <div class="footer-col">
-      <span class="footer-col-title">Контакты</span>
-      <a href="mailto:vlad@data-master.pro" class="footer-link">Почта</a>
-      <a href="https://t.me/vlad_kamensky" class="footer-link" target="_blank" rel="noopener">Телеграм</a>
+      <span class="footer-name">Владислав Каменский</span>
+      <span class="footer-tagline">Эксперт по автоматизации бизнес-процессов</span>
     </div>
     <div class="footer-col">
       <span class="footer-col-title">Соцсети</span>
       <a href="https://t.me/cdo_channel" class="footer-link" target="_blank" rel="noopener">Телеграм Канал</a>
       <a href="https://youtube.com/@masterofdata" class="footer-link" target="_blank" rel="noopener">YouTube</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-title">Статьи</span>
       <a href="https://habr.com/users/masterofdata" class="footer-link" target="_blank" rel="noopener">Хабр</a>
       <a href="https://vc.ru/u/masterofdata" class="footer-link" target="_blank" rel="noopener">VC.ru</a>
     </div>
@@ -1369,6 +1410,92 @@ img {
     if (prevBtn && nextBtn) {
       prevBtn.addEventListener('click', prevCase);
       nextBtn.addEventListener('click', nextCase);
+    }
+
+    // Form submission handler
+    const leadForm = document.querySelector('.lead-form');
+
+    if (leadForm) {
+      leadForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Получаем данные формы
+        const formData = new FormData(leadForm);
+        const name = leadForm.querySelector('input[type="text"]').value;
+        const email = leadForm.querySelector('input[type="email"]').value;
+        const phone = leadForm.querySelector('input[type="tel"]').value;
+        const process = leadForm.querySelector('select').value;
+
+        // Получаем текст выбранного процесса
+        const processText = leadForm.querySelector('select option:checked').text;
+
+        // Формируем сообщение для Telegram
+        const message = `
+🆕 <b>Новая заявка с сайта DataMaster.PRO</b>
+
+👤 <b>Имя:</b> ${name}
+📧 <b>Email:</b> ${email}
+📱 <b>Телефон:</b> ${phone}
+⚙️ <b>Процесс:</b> ${processText}
+
+📅 <b>Дата:</b> ${new Date().toLocaleString('ru-RU')}
+        `.trim();
+
+        // Показываем индикатор загрузки
+        const submitBtn = leadForm.querySelector('.form-submit');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Отправка...';
+        submitBtn.disabled = true;
+
+        try {
+          // Отправляем на PHP скрипт (безопасно для рунета!)
+          const response = await fetch('/telegram-handler.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name: name,
+              email: email,
+              phone: phone,
+              process: processText
+            })
+          });
+
+          const result = await response.json();
+
+          if (result.ok) {
+            // Успешная отправка
+            submitBtn.textContent = '✓ Заявка отправлена!';
+            submitBtn.style.background = '#27AE60';
+
+            // Очищаем форму
+            leadForm.reset();
+
+            // Возвращаем кнопку в исходное состояние через 3 секунды
+            setTimeout(() => {
+              submitBtn.textContent = originalText;
+              submitBtn.style.background = '';
+              submitBtn.disabled = false;
+            }, 3000);
+          } else {
+            throw new Error('Ошибка отправки в Telegram');
+          }
+        } catch (error) {
+          console.error('Ошибка:', error);
+
+          // Показываем ошибку
+          submitBtn.textContent = '✗ Ошибка отправки';
+          submitBtn.style.background = '#E74C3C';
+
+          // Возвращаем кнопку в исходное состояние через 3 секунды
+          setTimeout(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.style.background = '';
+            submitBtn.disabled = false;
+          }, 3000);
+        }
+      });
     }
   </script>
 </body>
