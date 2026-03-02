@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /course.html
 
 Sitemap: https://data-master.pro/sitemap.xml
